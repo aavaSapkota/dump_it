@@ -13,6 +13,7 @@ export default class HomePage extends Component {
           <ButtonOption title="Home Page" />
           <ButtonOption title="Camera Page" />
           <ButtonOption title="Result Page" />
+          <ButtonOption title="Location Page" />
         </div>
        
       </Container>
