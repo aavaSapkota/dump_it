@@ -23,9 +23,8 @@
 }
 
 .main-component {
-  background-color: #6aa84f;
   width: 100vw;
-  height: 85vh;
+  /* height: 85vh; */
 }
 
 .link {

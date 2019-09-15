@@ -45,6 +45,9 @@ export default class CameraPage extends Component {
             <Button variant="secondary">Go back</Button>
           </Link>
         </div>
+        <h1 style={{ textAlign: "center", margin: "15px" }}>
+          Please take a picture of your object
+        </h1>
         <div id="cam" className="camera">
           <Camera
             onTakePhoto={dataUri => {

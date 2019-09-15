@@ -40,10 +40,12 @@ class App extends React.Component {
         <Navbar class="navbar" dark>
           <NavbarToggler onClick={this.toggleNavbar} className="hi" />
 
-          <NavbarBrand className="navbar-brand text-center">
-            <img class="logo" src={logo} style={{ width: 50 }} alt="Logo" />
-            RECYCLE CAM
-          </NavbarBrand>
+          <Link to="/" style={{ color: "white" }}>
+            <NavbarBrand className="navbar-brand text-center">
+              RECYCLE CAM
+              <img class="logo" src={logo} style={{ width: 50 }} alt="Logo" />
+            </NavbarBrand>
+          </Link>
 
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav navbar>

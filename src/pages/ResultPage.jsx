@@ -46,16 +46,19 @@ export default class ResultPage extends Component {
   }
 
   findTypeWaste(predictions) {
-    var maxResult = 0;
-    var object = {};
-    for (var i = 0; i < predictions.length; i++) {
-      var currentProbability = predictions[i].probability;
-      if (currentProbability > maxResult) {
-        maxResult = currentProbability;
-        object = predictions[i];
+    if (predictions) {
+      var maxResult = 0;
+      var object = {};
+      for (var i = 0; i < predictions.length; i++) {
+        var currentProbability = predictions[i].probability;
+        if (currentProbability > maxResult) {
+          maxResult = currentProbability;
+          object = predictions[i];
+        }
       }
+      return object;
     }
-    return object;
+    return null;
   }
   render() {
     const { imageUrl, predictions } = this.state;
@@ -65,26 +68,38 @@ export default class ResultPage extends Component {
 
     if (imageUrl) {
       return (
-        <div style={{ marginTop: "20px" }}>
-          <Media>
-            <img
-              style={{ width: "40%" }}
-              className="mr-3"
-              src={imageUrl}
-              alt="Generic placeholder"
-            />
-            <Media.Body>
-              <h2>{prediction.tagName}</h2>
-              <p>Description</p>
-            </Media.Body>
-          </Media>
+        <div
+          className="container"
+          style={{ marginTop: "20px", textAlign: "center" }}
+        >
+          <img
+            style={{
+              width: "60%",
+              border: "2px solid black",
+              borderRadius: "10px"
+            }}
+            className="mr-3"
+            src={imageUrl}
+            alt="Generic placeholder"
+          />
+          <Media.Body>
+            <h2 style={{ margin: "0 auto", marginTop: "0.5em" }}>
+              {prediction.tagName}
+            </h2>
+            {/* <p>Description</p> */}
+          </Media.Body>
+
           <div className="buttons" style={{ marginTop: "20px" }}>
-            <Button variant="light">
-              <Link to="/">Back to home</Link>
-            </Button>{" "}
-            <Button variant="light">
-              <Link to="/camera">Take a snap</Link>
-            </Button>
+            <Link to="/">
+              <Button variant="light" size="lg">
+                Back to home
+              </Button>{" "}
+            </Link>
+            <Link to="/camera">
+              <Button variant="light" size="lg">
+                Take other snap
+              </Button>
+            </Link>
           </div>
         </div>
       );
@@ -95,12 +110,16 @@ export default class ResultPage extends Component {
         <p>There is no image. Please take a new one!</p>
 
         <div className="buttons">
-          <Button variant="light">
-            <Link to="/">Back to home</Link>
-          </Button>{" "}
-          <Button variant="light">
-            <Link to="/camera">Take a snap</Link>
-          </Button>
+          <Link to="/">
+            <Button variant="light" size="lg">
+              Back to home
+            </Button>{" "}
+          </Link>
+          <Link to="/camera">
+            <Button variant="light" size="lg">
+              Take other snap
+            </Button>
+          </Link>
         </div>
       </Alert>
     );
