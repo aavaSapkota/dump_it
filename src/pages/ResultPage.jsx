@@ -9,35 +9,60 @@ export default class ResultPage extends Component {
   constructor() {
     super();
     this.state = {
-      imageUrl: null
+      imageUrl: null,
+      predictions: []
     };
   }
-
+  callApi(blob) {
+    return fetch(
+      "https://northcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/3aae5557-2969-47c8-a0ff-58c925bb8f6d/classify/iterations/recycle_cam/image",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/octet-stream",
+          "Prediction-Key": "e03e4c248dae4e5e92d6f9c7de167ad8"
+        },
+        body: blob
+      }
+    ).then(res => res.json());
+  }
   componentDidMount() {
     const { data } = this.props.location;
-    console.log(data.imageUrl);
+
     if (data) {
       this.setState({
         imageUrl: data.imageUrl
       });
-    }
 
-    const formData = new FormData();
-    // fetch(
-    //   "https://northcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/3aae5557-2969-47c8-a0ff-58c925bb8f6d/classify/iterations/recycle_cam/image",
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/octet-stream",
-    //       "Prediction-Key": "e03e4c248dae4e5e92d6f9c7de167ad8"
-    //     },
-    //     body:
-    //   }
-    // );
+      fetch(data.imageUrl)
+        .then(res => res.blob())
+        .then(blob => this.callApi(blob))
+        .then(res =>
+          this.setState({
+            predictions: res.predictions
+          })
+        );
+    }
+  }
+
+  findTypeWaste(predictions) {
+    var maxResult = 0;
+    var object = {};
+    for (var i = 0; i < predictions.length; i++) {
+      var currentProbability = predictions[i].probability;
+      if (currentProbability > maxResult) {
+        maxResult = currentProbability;
+        object = predictions[i];
+      }
+    }
+    return object;
   }
   render() {
-    const { imageUrl } = this.state;
-    console.log(imageUrl);
+    const { imageUrl, predictions } = this.state;
+    const prediction = this.findTypeWaste(predictions);
+    console.log(prediction);
+    console.log(predictions);
+
     if (imageUrl) {
       return (
         <div style={{ marginTop: "20px" }}>
@@ -49,7 +74,7 @@ export default class ResultPage extends Component {
               alt="Generic placeholder"
             />
             <Media.Body>
-              <h5>Type of Waste</h5>
+              <h2>{prediction.tagName}</h2>
               <p>Description</p>
             </Media.Body>
           </Media>

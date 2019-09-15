@@ -23,10 +23,6 @@ export default class CameraPage extends Component {
       pathname: "/result",
       data: { imageUrl: dataUri }
     });
-
-    var canvas = document.querySelectorAll("img");
-
-    console.log(canvas[1]);
   }
 
   onCameraError(error) {
