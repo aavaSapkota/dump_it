@@ -5,10 +5,17 @@ import CameraPage from "./pages/CameraPage";
 import HomePage from "./pages/HomePage";
 import ResultPage from "./pages/ResultPage";
 import logo from "./logo1.png";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
+} from "reactstrap";
 
 class App extends React.Component {
   constructor(props) {
@@ -31,27 +38,39 @@ class App extends React.Component {
       <div>
         <Navbar class="navbar" dark>
           <NavbarToggler onClick={this.toggleNavbar} className="hi" />
-          
-          <NavbarBrand className="navbar-brand text-center"><img class="logo" src={logo} width= "50" height="50" alt="Logo" />RECYCLE CAM</NavbarBrand>
+
+          <NavbarBrand className="navbar-brand text-center">
+            <img class="logo" src={logo} style={{ width: 50 }} alt="Logo" />
+            RECYCLE CAM
+          </NavbarBrand>
 
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav navbar>
               <NavItem>
-                <NavLink className="text-center mr-auto"><Link class="link" to="/">Home Page</Link></NavLink>
+                <NavLink className="text-center mr-auto">
+                  <Link class="link" to="/">
+                    Home Page
+                  </Link>
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="text-center mr-auto"><Link class="link" to="/camera">Camera Page</Link></NavLink>
+                <NavLink className="text-center mr-auto">
+                  <Link class="link" to="/camera">
+                    Camera Page
+                  </Link>
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="text-center mr-auto"><Link class="link" to="/result">Result Page</Link></NavLink>
+                <NavLink className="text-center mr-auto">
+                  <Link class="link" to="/result">
+                    Result Page
+                  </Link>
+                </NavLink>
               </NavItem>
             </Nav>
           </Collapse>
-
-          
         </Navbar>
 
-  
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/camera" component={CameraPage} />
@@ -61,6 +80,5 @@ class App extends React.Component {
     );
   }
 }
-  
 
 export default App;

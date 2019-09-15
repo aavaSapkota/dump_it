@@ -7,28 +7,27 @@
 */
 
 .container-fluid {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .navbar {
-    background-color: #0C343D;
-    color: white;
-    width: 100vw;
+  background-color: #0c343d;
+  color: white;
+  width: 100vw;
 }
 
 .logo {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .main-component {
-    background-color: #6AA84F;
-    width: 100vw;
-    height: 85vh;
+  background-color: #6aa84f;
+  width: 100vw;
+  height: 85vh;
 }
 
 .link {
-    color: white;
+  color: white;
 }
-

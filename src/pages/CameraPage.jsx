@@ -15,6 +15,7 @@ export default class CameraPage extends Component {
     };
   }
   onTakePhoto(dataUri) {
+    console.log(dataUri);
     this.setState({
       imageUrl: dataUri
     });
