@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Camera</title>
+    </head>
+    <body>
+        <!-- <input type="file" accept="video/*;capture=camcorder"> -->
+        <video autoplay></video>
+        <button class="btn-screenshot" onclick="captureImage()">Take Screenshot</button>
+        <img />
+
+        <script>
+            const constraints = {
+                video: true
+            };
+
+            var video = document.querySelector('video');
+
+            navigator.mediaDevices.getUserMedia(constraints).
+            then((stream) => {video.srcObject = stream});
+
+            var canvas;
+
+            var captureImage = function() {
+                canvas = document.createElement('canvas');
+                canvas.width = 480;
+                canvas.height = 360;
+                canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        
+                var img = document.querySelector('img');
+                img.src = canvas.toDataURL();
+            };
+
+        </script>
+    </body>
+</html>

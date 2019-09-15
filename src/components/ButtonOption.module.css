@@ -1,0 +1,13 @@
+.row {
+    margin-top: 10vh;
+    display: flex;
+    justify-items: center;
+    text-align: center;
+}
+
+.main-btn {
+    background-color: white;
+    width: 50vw;
+    height: 20vh;
+    margin: 0;
+}
