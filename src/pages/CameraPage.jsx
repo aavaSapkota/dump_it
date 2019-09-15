@@ -15,7 +15,6 @@ export default class CameraPage extends Component {
     };
   }
   onTakePhoto(dataUri) {
-    console.log(dataUri);
     this.setState({
       imageUrl: dataUri
     });
@@ -24,6 +23,10 @@ export default class CameraPage extends Component {
       pathname: "/result",
       data: { imageUrl: dataUri }
     });
+
+    var canvas = document.querySelectorAll("img");
+
+    console.log(canvas[1]);
   }
 
   onCameraError(error) {
@@ -46,7 +49,7 @@ export default class CameraPage extends Component {
             <Button variant="secondary">Go back</Button>
           </Link>
         </div>
-        <div className="camera">
+        <div id="cam" className="camera">
           <Camera
             onTakePhoto={dataUri => {
               this.onTakePhoto(dataUri);

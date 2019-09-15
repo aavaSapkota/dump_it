@@ -4,6 +4,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import CameraPage from "./pages/CameraPage";
 import HomePage from "./pages/HomePage";
 import ResultPage from "./pages/ResultPage";
+import { LocationPage } from "./pages/LocationPage";
 import logo from "./logo1.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -62,8 +63,8 @@ class App extends React.Component {
               </NavItem>
               <NavItem>
                 <NavLink className="text-center mr-auto">
-                  <Link class="link" to="/result">
-                    Result Page
+                  <Link class="link" to="/location">
+                    Location
                   </Link>
                 </NavLink>
               </NavItem>
@@ -74,7 +75,8 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/camera" component={CameraPage} />
-          <Route path="/result" component={ResultPage}></Route>
+          <Route path="/result" component={ResultPage} />
+          <Route path="/location" component={LocationPage}></Route>
         </Switch>
       </div>
     );

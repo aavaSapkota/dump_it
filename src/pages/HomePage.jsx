@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Button, ButtonGroup, Container } from "reactstrap";
-import { Link, Route, Switch } from "react-router-dom";
+import { Container } from "reactstrap";
 import ButtonOption from "../components/ButtonOption";
 import "./HomePage.module.css";
 
