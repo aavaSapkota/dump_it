@@ -1,0 +1,27 @@
+.camera {
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: 3px solid black;
+  overflow: none;
+  background-color: grey;
+  border-radius: 10px;
+}
+
+.react-html5-camera-photo > img,
+.react-html5-camera-photo > video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.options {
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 1028px) {
+  /* For general iPad layouts */
+  .camera {
+    width: 100%;
+  }
+}
