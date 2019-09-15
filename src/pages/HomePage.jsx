@@ -9,8 +9,8 @@ export default class HomePage extends Component {
       <Container>
         <div className="options">
           <ButtonOption title="Home" route="/" />
-          <ButtonOption title="Take a snap" route="/camera" />
-          <ButtonOption title="Location" route="/location" />
+          <ButtonOption title="Take a Snap" route="/camera" />
+          <ButtonOption title="Nearest Location" route="/location" />
         </div>
       </Container>
     );

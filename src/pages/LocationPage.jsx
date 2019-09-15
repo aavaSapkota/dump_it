@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Map, InfoWindow, GoogleApiWrapper, Marker } from "google-maps-react";
+import { Button } from "reactstrap";
 
 export class LocationPage extends Component {
   constructor(props) {
@@ -100,18 +101,55 @@ export class LocationPage extends Component {
   render() {
     return (
       <div className="main-component">
-        <button type="button" onClick={this.getRecyclingCenter}>
+        <Button color="primary" type="button" onClick={this.getRecyclingCenter}>
           Get Nearest Recycling Center
-        </button>
-        {this.state.description && <p>Location: {this.state.description}</p>}
-        {this.state.phone && <p>Phone: {this.state.phone}</p>}
-        {this.state.address && <p>Address: {this.state.address}</p>}
-        {this.state.postal_code && <p>Postal Code: {this.state.postal_code}</p>}
-        {this.state.province && <p>Province: {this.state.province}</p>}
-        {this.state.region && <p>Region: {this.state.region}</p>}
-        {this.state.city && <p>Region: {this.state.city}</p>}
-        {this.state.country && <p>Region: {this.state.country}</p>}
-        {this.state.hours && <p>Region: {this.state.hours}</p>}
+        </Button>
+
+        {this.state.description && (
+          <p>
+            <b>Location:</b> {this.state.description}
+          </p>
+        )}
+        {this.state.phone && (
+          <p>
+            <b>Phone:</b> {this.state.phone}
+          </p>
+        )}
+        {this.state.address && (
+          <p>
+            <b>Address:</b> {this.state.address}
+          </p>
+        )}
+        {this.state.postal_code && (
+          <p>
+            <b>Postal Code:</b> {this.state.postal_code}
+          </p>
+        )}
+        {this.state.province && (
+          <p>
+            <b>Province:</b> {this.state.province}
+          </p>
+        )}
+        {this.state.region && (
+          <p>
+            <b>Region:</b> {this.state.region}
+          </p>
+        )}
+        {this.state.city && (
+          <p>
+            <b>City:</b> {this.state.city}
+          </p>
+        )}
+        {this.state.country && (
+          <p>
+            <b>Country:</b> {this.state.country}
+          </p>
+        )}
+        {this.state.hours && (
+          <p>
+            <b>Hours:</b> {this.state.hours}
+          </p>
+        )}
 
         {this.state.latitude && this.state.longitude && (
           <Map

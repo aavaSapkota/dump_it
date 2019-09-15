@@ -42,7 +42,7 @@ export default class CameraPage extends Component {
       <Container>
         <div className="options">
           <Link to="/">
-            <Button variant="secondary">Go back</Button>
+            <Button variant="secondary">Go Back</Button>
           </Link>
         </div>
         <h1 style={{ textAlign: "center", margin: "15px" }}>
